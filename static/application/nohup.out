@@ -1,0 +1,19 @@
+[11:25:20] Using gulpfile ~/projects/python/demo/static/application/gulpfile.js
+[11:25:20] Starting 'server'...
+[11:25:21] Finished 'server' after 97 ms
+[11:25:21] [nodemon] 1.11.0
+[11:25:21] [nodemon] to restart at any time, enter `rs`
+[11:25:21] [nodemon] watching: *.*
+[11:25:21] [nodemon] starting `node app.js`
+[BS] Proxying: http://localhost:5100
+[BS] Access URLs:
+ --------------------------------------
+       Local: http://localhost:5050
+    External: http://192.168.31.38:5050
+ --------------------------------------
+          UI: http://localhost:3001
+ UI External: http://192.168.31.38:3001
+ --------------------------------------
+[BS] Watching files...
+browser refreshed.
+监听成功，请在浏览器访问 http://localhost: 5100
