@@ -1,3 +1,4 @@
 static/application/node_modules
 .idea
 .DS_Store
+*.pyc
