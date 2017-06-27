@@ -1,0 +1,14 @@
+
+server {
+        listen 80;
+        server_name qianmos.com www.qianmos.com;
+
+
+        location / {
+#               try_files $uri $uri/ =404;
+                proxy_pass http://127.0.0.1:8080;
+        }
+        location /static {
+        alias /var/www/myflask/demo/;
+        }
+}

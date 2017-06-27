@@ -12,3 +12,6 @@ Flask + Gunicorn + Nginx 部署
 
 # 启动
 * make up 启动gunicorn伺服
+
+# nginx配置
+* config/default
