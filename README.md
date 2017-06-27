@@ -9,3 +9,6 @@
 
 Flask + Gunicorn + Nginx 部署
 * 打算改为docker
+
+# 启动
+* make up 启动gunicorn伺服

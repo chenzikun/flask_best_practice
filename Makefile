@@ -1,6 +1,6 @@
 .CHENZIKUN: make
 help:
-	@echo "make gulp"
+	@echo "make gulp | up"
 
 gulp:
 	@cd static/application;nohup gulp server &
