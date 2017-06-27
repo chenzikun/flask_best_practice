@@ -17,3 +17,61 @@
 [BS] Watching files...
 browser refreshed.
 监听成功，请在浏览器访问 http://localhost: 5100
+[17:13:54] [nodemon] app crashed - waiting for file changes before starting...
+[17:18:07] Using gulpfile ~/projects/python/demo/static/application/gulpfile.js
+[17:18:07] Starting 'server'...
+[17:18:08] Finished 'server' after 144 ms
+[17:18:08] [nodemon] 1.11.0
+[17:18:08] [nodemon] to restart at any time, enter `rs`
+[17:18:08] [nodemon] watching: *.*
+[17:18:08] [nodemon] starting `node app.js`
+[BS] Proxying: http://localhost:5100
+[BS] Access URLs:
+ --------------------------------------
+       Local: http://localhost:5052
+    External: http://192.168.31.38:5052
+ --------------------------------------
+          UI: http://localhost:3003
+ UI External: http://192.168.31.38:3003
+ --------------------------------------
+[BS] Watching files...
+browser refreshed.
+监听成功，请在浏览器访问 http://localhost: 5100
+events.js:163
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE :::5100
+    at Object.exports._errnoException (util.js:1034:11)
+    at exports._exceptionWithHostPort (util.js:1057:20)
+    at Server._listen2 (net.js:1270:14)
+    at listen (net.js:1306:10)
+    at Server.listen (net.js:1397:7)
+    at Function.listen (/Users/chenzikun/projects/python/demo/static/application/node_modules/express/lib/application.js:618:24)
+    at Object.<anonymous> (/Users/chenzikun/projects/python/demo/static/application/app.js:46:5)
+    at Module._compile (module.js:571:32)
+    at Object.Module._extensions..js (module.js:580:10)
+    at Module.load (module.js:488:32)
+[17:18:08] [nodemon] app crashed - waiting for file changes before starting...
+[10:11:47] Using gulpfile ~/projects/python/demo/static/application/gulpfile.js
+[10:11:47] Starting 'server'...
+[10:11:47] Finished 'server' after 135 ms
+[10:11:47] [nodemon] 1.11.0
+[10:11:47] [nodemon] to restart at any time, enter `rs`
+[10:11:47] [nodemon] watching: *.*
+[10:11:47] [nodemon] starting `node app.js`
+[BS] Proxying: http://localhost:5100
+[BS] Access URLs:
+ --------------------------------------
+       Local: http://localhost:5053
+    External: http://192.168.191.8:5053
+ --------------------------------------
+          UI: http://localhost:3013
+ UI External: http://192.168.191.8:3013
+ --------------------------------------
+[BS] Watching files...
+browser refreshed.
+监听成功，请在浏览器访问 http://localhost: 5100
+[BS] Reloading Browsers...
+[BS] Reloading Browsers...
+[BS] Reloading Browsers...
