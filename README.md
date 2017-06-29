@@ -22,3 +22,6 @@ Flask + Gunicorn + Nginx 部署
 * 将以下网址放在requirements.txt首句
 
  > --index https://pypi.douban.com/simple
+
+# redis高可用
+* 采用docker容器方案部署redis高可用
