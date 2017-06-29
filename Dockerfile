@@ -1,4 +1,6 @@
-FROM python:3.6.1-alpile
+FROM python:3.6.1-alpine
+
+MAINTAINER chenzikunczk@gmail.com
 
 WORKDIR /code
 

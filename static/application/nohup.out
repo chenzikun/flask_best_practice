@@ -118,3 +118,37 @@ browser refreshed.
 [BS] Reloading Browsers...
 [BS] Reloading Browsers...
 [BS] Reloading Browsers...
+[15:41:30] Using gulpfile ~/projects/python/demo/static/application/gulpfile.js
+[15:41:30] Starting 'server'...
+[15:41:30] Finished 'server' after 158 ms
+[15:41:30] [nodemon] 1.11.0
+[15:41:30] [nodemon] to restart at any time, enter `rs`
+[15:41:30] [nodemon] watching: *.*
+[15:41:30] [nodemon] starting `node app.js`
+[BS] Proxying: http://localhost:5100
+[BS] Access URLs:
+ --------------------------------------
+       Local: http://localhost:5050
+    External: http://192.168.191.8:5050
+ --------------------------------------
+          UI: http://localhost:3001
+ UI External: http://192.168.191.8:3001
+ --------------------------------------
+[BS] Watching files...
+browser refreshed.
+监听成功，请在浏览器访问 http://localhost: 5100
+[BS] Reloading Browsers...
+[15:55:19] [nodemon] restarting due to changes...
+[BS] Reloading Browsers...
+[15:55:19] [nodemon] starting `node app.js`
+browser refreshed.
+监听成功，请在浏览器访问 http://localhost: 5100
+[BS] Reloading Browsers...
+[16:27:32] [nodemon] restarting due to changes...
+[16:27:32] [nodemon] starting `node app.js`
+browser refreshed.
+监听成功，请在浏览器访问 http://localhost: 5010
+[23:08:47] [nodemon] restarting due to changes...
+[23:08:47] [nodemon] starting `node app.js`
+browser refreshed.
+监听成功，请在浏览器访问 http://localhost: 5100

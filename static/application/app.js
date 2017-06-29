@@ -41,7 +41,7 @@ app.get('/homepage', function (req, res) {
     });
 });
 
-var thisTemplatePort = 5100;
+var thisTemplatePort = 5010;
 // 启动服务
 app.listen(thisTemplatePort);
-console.info('监听成功，请在浏览器访问 http://localhost:', thisTemplatePort);
+console.info('监听成功，请在浏览器访问 http://localhost:', 5100);
