@@ -15,3 +15,10 @@ Flask + Gunicorn + Nginx 部署
 
 # nginx配置
 * config/default
+
+
+# pip下载源
+
+* 将以下网址放在requirements.txt首句
+
+ > --index https://pypi.douban.com/simple

@@ -14,6 +14,7 @@ def create_app():
     app = Application()
 
     from app.homepage.view import homepage_bp
-    blueprints = [homepage_bp]
+    from app.apis.api import api_bp
+    blueprints = [homepage_bp, api_bp]
     app._init_blueprint(*blueprints)
     return app
