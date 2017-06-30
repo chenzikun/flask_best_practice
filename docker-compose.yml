@@ -1,4 +1,4 @@
-version: "3"
+version: "0.2.1"
 
 services:
     web:
@@ -8,14 +8,12 @@ services:
         depends_on:
             -redis-sentinel
 
-
     redis-master:
         images: "redis:alpine"
         volumes:
             - ./config/redis-master.conf:/data/redis.conf
         commmand:
             redis-server redis-mater.conf
-
 
     redis-slave:
         images: "redis:alpine"

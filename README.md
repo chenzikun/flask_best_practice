@@ -1,4 +1,4 @@
-# demo
+# Demo
 
 ## 技术选型
 1. 后台：Flask
