@@ -4,3 +4,4 @@ static/application/node_modules
 *.pyc
 __pycache__
 nohup.out
+!/*.pyc

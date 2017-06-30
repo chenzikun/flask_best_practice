@@ -1,6 +1,6 @@
 import os
 
-from flask import Blueprint, render_template, url_for
+from flask import Blueprint, render_template, url_for, app
 
 template_path = os.path.abspath(
     os.path.join(
@@ -9,9 +9,8 @@ template_path = os.path.abspath(
                 os.path.dirname(__file__), ".."), ".."), "templates")
 )
 
-
 # html加上homepage.index
-homepage_bp = Blueprint("homepage", __name__, template_folder=template_path, url_prefix="/homepage/")
+homepage_bp = Blueprint("homepage", __name__, template_folder=template_path)
 
 
 @homepage_bp.route("/")
