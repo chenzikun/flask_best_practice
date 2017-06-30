@@ -9,8 +9,9 @@ template_path = os.path.abspath(
                 os.path.dirname(__file__), ".."), ".."), "templates")
 )
 
+
 # html加上homepage.index
-homepage_bp = Blueprint("homepage", __name__, template_folder=template_path)
+homepage_bp = Blueprint("homepage", __name__, template_folder=template_path, url_prefix="/homepage/")
 
 
 @homepage_bp.route("/")
