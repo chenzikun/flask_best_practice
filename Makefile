@@ -17,5 +17,3 @@ stop_all:
 rm_all:
 	@docker rm `docker ps -aq`
 
-dup:
-	@docker run -d -p 8800:8000 demo:v0.2.1
