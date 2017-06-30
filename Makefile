@@ -6,7 +6,7 @@ gulp:
 	@cd static/application;nohup gulp server &
 
 gup:
-	@nohup gunicorn -w 4 -b 127.0.0.1:8080 run:app &
+	@nohup gunicorn -w 4 -b 127.0.0.1:8080 manage:app &
 
 reset:
 	@git fetch; git reset --hard origin/master;git pull
