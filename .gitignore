@@ -5,3 +5,4 @@ static/application/node_modules
 __pycache__
 nohup.out
 !/*.pyc
+docs/build/doctrees docs/build/html
