@@ -31,7 +31,7 @@ class SQLAlchemyDatabase(object):
         result = self.session.query(table).all()
         return result
 
-    def query_dict(self, table_name):
+    def query_items(self, table_name):
         """
         获取数据
         :param table_name: 表名
