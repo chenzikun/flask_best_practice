@@ -17,10 +17,13 @@ Flask + Gunicorn + Nginx 部署
 * config/default
 
 
-## pip下载源
+## 关于requirements
+1. 部署模式下使用 requirements.txt
+2. 开发环境下使用 docs/requirements_dev.txt
 
+
+#### pip下载源
 * 将以下网址放在requirements.txt首句
-
  > --index https://pypi.douban.com/simple
 
 ## redis高可用
