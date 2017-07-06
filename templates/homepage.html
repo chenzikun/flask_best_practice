@@ -17,6 +17,8 @@
 <body>
 <p>hello!</p>
 <p><a href="{{ url_for('homepage.introduction') }}">Introduction</a></p>
+<p>{{ request.remote_addr }}</p>
+<p>{{ g }}</p>
+<p>{{ session }}</p>
 </body>
 </html>
-

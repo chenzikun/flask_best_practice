@@ -6,8 +6,11 @@ Welcome to demo's documentation!
     :maxdepth: 2
     :caption: 目录:
 
+    flask快速入门
+    模板
     gulp
     docker
+    测试
     代码规范
     函数名返回类型
     api/*

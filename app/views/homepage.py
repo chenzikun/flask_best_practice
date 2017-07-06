@@ -18,6 +18,6 @@ def index():
     return render_template("homepage.html")
 
 
-@homepage_bp.route("/Introduction")
+@homepage_bp.route("/Introduction/")
 def introduction():
-    return "Introduction!"
+    return "Introduction"

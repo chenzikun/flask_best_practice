@@ -1,3 +1,4 @@
+
 def init_celery(app, celery):
     celery.conf.update(app.config)
     TaskBase = celery.Task

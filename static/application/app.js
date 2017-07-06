@@ -21,7 +21,7 @@ env = nunjucks.configure(templates, {
 
 // 让url_for编译过去
 env.addGlobal('url_for', function () {
-    return '#';
+    return 'javascript:void(0)';
 });
 
 // static files
