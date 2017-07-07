@@ -13,6 +13,7 @@ Welcome to demo's documentation!
     测试
     代码规范
     函数名返回类型
+    redis配置说明
     api/*
 
 
