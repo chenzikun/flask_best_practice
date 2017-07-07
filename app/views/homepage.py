@@ -1,6 +1,6 @@
 import os
 
-from flask import Blueprint, render_template, url_for, app
+from flask import Blueprint, render_template, url_for, current_app
 
 template_path = os.path.abspath(
     os.path.join(
@@ -21,3 +21,14 @@ def index():
 @homepage_bp.route("/Introduction/")
 def introduction():
     return "Introduction"
+
+from app import celery
+
+
+@celery.task()
+def add(a, b):
+    app_context = current_app
+    return a+ b
+
+
+
