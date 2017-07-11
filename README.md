@@ -35,3 +35,10 @@ Flask + Gunicorn + Nginx 部署
 3. Python下访问端口为8080
 
 ## Makefile
+
+## celery
+`celery -A your_application worker`
+
+
+## 文档
+* 文档位于docs

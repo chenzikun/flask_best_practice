@@ -1,7 +1,7 @@
 API
 ===
 
-.. automodule:: app.databases
+.. automodule:: app.database._sqlalchemy.SqlalchemyDatabase
    :members:
 
 

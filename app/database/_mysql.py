@@ -2,15 +2,14 @@ import pymysql
 
 
 class MysqlDatabase(object):
-    def __init__(self):
-        pass
+    def __init__(self, setting):
+        self.setting = setting
 
-    @staticmethod
-    def mysql_conn():
-        return pymysql.connect()
+    def create_conn(self):
+        return pymysql.connect(self.setting)
 
     def add(self, sql, value):
-        conn = self.mysql_conn()
+        conn = self.create_conn()
         with conn.cursor() as cursor:
             if isinstance(value, tuple):
                 cursor.execute(sql, value)
@@ -21,7 +20,7 @@ class MysqlDatabase(object):
             conn.commit()
 
     def insert(self, sql, value):
-        conn = self.mysql_conn()
+        conn = self.create_conn()
         with conn.cursor() as cursor:
             if isinstance(value, tuple):
                 cursor.execute(sql, value)
@@ -31,6 +30,6 @@ class MysqlDatabase(object):
             return cursor.lastrowid
 
     def query(self, sql):
-        with self.mysql_conn().cursor() as cursor:
+        with self.create_conn().cursor() as cursor:
             cursor.execute(sql)
             return cursor.fetchall()

@@ -1,16 +1,9 @@
 import os
 
-from flask import Blueprint, render_template, url_for, current_app
-
-template_path = os.path.abspath(
-    os.path.join(
-        os.path.join(
-            os.path.join(
-                os.path.dirname(__file__), ".."), ".."), "templates")
-)
+from flask import Blueprint, render_template, url_for, current_app, redirect, abort
 
 # html加上homepage.index
-homepage_bp = Blueprint("homepage", __name__, template_folder=template_path)
+homepage_bp = Blueprint("homepage", __name__)
 
 
 @homepage_bp.route("/")
@@ -22,13 +15,9 @@ def index():
 def introduction():
     return "Introduction"
 
-from app import celery
 
-
-@celery.task()
-def add(a, b):
-    app_context = current_app
-    return a+ b
-
+@homepage_bp.errorhandler(404)
+def handle_404(err):
+    return "404"
 
 

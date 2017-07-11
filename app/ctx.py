@@ -1,10 +1,6 @@
-from flask.ext.security import current_user
+from flask_security import current_user
 
-def user_context_processor():
-    if current_user.is_authenticated():
-        user = current_user._get_current_object()
-    else:
-        user = None
+def author_context_processor():
     return {
-        'user': user,
+        'author': "chenzikunczk@gmail.com",
     }

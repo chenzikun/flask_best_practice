@@ -1,41 +1,84 @@
-from flask import Flask
+import os
+
 from celery import Celery
+from flask import Flask
+
+from config import config
+from .database._mysql import MysqlDatabase
+from .database._redis import RedisDatabase
+from .database._sqlalchemy import SqlalchemyDatabase
+from .database._sqlite import SQLite3
 from .utils.celery_util import init_celery
 from .utils.mail_handler import init_mail
 
-import os
+app_dir = os.path.join(os.path.dirname(__file__), "..")
 
 static_path = os.path.abspath(
     os.path.join(
-        os.path.join(
-            os.path.dirname(__file__), ".."), "static")
+        app_dir, "static")
+)
+
+templates_path = os.path.abspath(
+    os.path.join(
+        app_dir, "templates")
 )
 
 celery = Celery()
 
 
+class Database():
+    def __init__(self, config):
+
+        mysql = MysqlDatabase(config["MYSQL_CONFIG"])
+        sqlalchemy = SqlalchemyDatabase(config["SQLALCHEMY"])
+        redis = SqlalchemyDatabase(config["REDIS"])
+        sqlite = SqlalchemyDatabase(config["SQLITE"])
+
+
 class Application(Flask):
     def __init__(self, environment):
         # TODO LOG,db,
-        super(Application, self).__init__(__name__, static_folder=static_path)
+        super(Application, self).__init__(__name__, static_folder=static_path, template_folder=templates_path)
+        self.config.from_object(config[environment])
+        # self.db = Database(self.config)
 
-        #: celery配置
-        self.config.update(
-            CELERY_BROKER_URL='redis://127.0.0.1:6379',
-            CELERY_RESULT_BACKEND='redis://127.0.0.1:6379'
-        )
+        #: celery
         init_celery(self, celery)
 
-        # mail
+        #: mail
         init_mail(self)
 
     def _init_blueprint(self, *blueprints):
+        """
+        注册蓝图
+        :param blueprints(list): 蓝图 
+        """
         for blueprint in blueprints:
             self.register_blueprint(blueprint)
 
     def register_processors(self, *context_processors):
+        """
+        注册jinja上下文,在模板渲染之前运行
+        :param context_processors(list): 上下文函数 
+        """
         for context_processor in context_processors:
             self.context_processor(context_processor)
+
+    def before_request_hook(self, *funcs):
+        """
+        请求钩子
+        :param funcs(list): 请求之前注册函数 
+        """
+        for f in funcs:
+            self.before_request(f)
+
+    def after_request_hook(self, *funcs):
+        """
+        响应钩子
+        :param funcs:响应之后 
+        """
+        for f in funcs:
+            self.after_request(f)
 
 
 def create_app(environment):
@@ -43,15 +86,16 @@ def create_app(environment):
     if environment == "dev":
         app.debug = True
 
-    from app.views.homepage import homepage_bp
+    #: 注册蓝图
     from app.apis.api import api_bp
-    blueprints = [homepage_bp, api_bp]
+    from app.views.homepage import homepage_bp
+    from app.views.error import error_bp
+    blueprints = [homepage_bp, api_bp, error_bp]
     app._init_blueprint(*blueprints)
 
-    from .ctx import user_context_processor
-    context_processors = [user_context_processor]
-    # app.register_processors(*context_processors)
-
-
+    #: 注册jinja上下文
+    from .ctx import author_context_processor
+    context_processors = [author_context_processor]
+    app.register_processors(*context_processors)
 
     return app

@@ -6,17 +6,19 @@ class RedisDatabase(object):
         """
         :param setting:  'redis://192.168.1.25:6379'
         """
-        self.conn = self._redis_conn(setting)
+        self.setting = setting
 
-    def _redis_conn(self, setting):
-        conn = redis.StrictRedis.from_url(setting)
+    def create_conn(self):
+        conn = redis.StrictRedis.from_url(self.setting)
         return conn
 
     def dump(self, key, data):
+        conn = self.create_conn()
         s = json.dumps(data)
-        self.conn.set(key, s)
+        conn.set(key, s)
 
     def load(self, key):
-        s = self.conn.get(key)
+        conn = self.create_conn()
+        s = conn.get(key)
         if s:
             return json.loads(s)
