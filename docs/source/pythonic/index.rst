@@ -1,19 +1,12 @@
-Welcome to demo's documentation!
-================================
+Pythonic!
+=========
 
 .. toctree::
-    :maxdepth: 2
-    :caption: 目录:
+    :maxdepth: 1
+    :caption: 如何写Pythonic代码
 
     代码规范
-    函数名返回类型
+    命名
     测试
 
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
 

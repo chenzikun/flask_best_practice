@@ -1,9 +1,9 @@
-Welcome to demo's documentation!
-================================
+Flask
+=====
 
 .. toctree::
-    :maxdepth: 2
-    :caption: 目录:
+    :maxdepth: 1
+    :caption: Flask入门
 
     flask快速入门
     模板
@@ -12,10 +12,4 @@ Welcome to demo's documentation!
     测试
 
 
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
 

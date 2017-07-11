@@ -1,14 +1,7 @@
 API
 ===
 
-.. automodule:: app.database._sqlalchemy.SqlalchemyDatabase
+.. automodule:: app.database._sqlalchemy
    :members:
 
 
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`

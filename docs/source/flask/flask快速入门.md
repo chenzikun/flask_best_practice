@@ -1,6 +1,6 @@
-# Flask笔记
+## Flask笔记
 
-## 快速入门
+### 快速入门
 1. 外网访问
     ```
 	app.run(host='0.0.0.0')
@@ -76,7 +76,7 @@ def about():
 	app.logger.error('An error occurred')
 	```
 
-## request对象
+### request对象
 1. request.method
 
 	请求方法

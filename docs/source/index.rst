@@ -1,5 +1,5 @@
-Welcome to demo's documentation!
-================================
+Flask best practice!
+====================
 
 .. toctree::
     :glob:
@@ -7,6 +7,7 @@ Welcome to demo's documentation!
     :caption: 目录:
 
     gulp
+    redis配置说明
     docker
     pythonic/*
     flask/*

@@ -1,5 +1,9 @@
 from flask import current_app
 
+try:
+    from flask import _app_ctx_stack as stack
+except ImportError:
+    from flask import _request_ctx_stack as stack
 
 class Extension(object):
     def __init__(self, app=None):
