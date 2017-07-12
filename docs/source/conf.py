@@ -58,7 +58,7 @@ source_suffix = ['.rst', '.md']
 master_doc = 'index'
 
 # General information about the project.
-project = 'demo'
+project = 'flask最佳实践指南'
 copyright = '2017, chenzikunczk@gmail.com'
 author = 'chenzikunczk@gmail.com'
 

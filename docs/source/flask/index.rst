@@ -2,7 +2,7 @@ Flask
 =====
 
 .. toctree::
-    :maxdepth: 1
+    :maxdepth: 2
     :caption: Flask入门
 
     flask快速入门

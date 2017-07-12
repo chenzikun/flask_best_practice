@@ -2,7 +2,7 @@ Pythonic!
 =========
 
 .. toctree::
-    :maxdepth: 1
+    :maxdepth: 2
     :caption: 如何写Pythonic代码
 
     代码规范

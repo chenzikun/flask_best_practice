@@ -1,4 +1,4 @@
-Flask best practice!
+Flask Best Practice!
 ====================
 
 .. toctree::

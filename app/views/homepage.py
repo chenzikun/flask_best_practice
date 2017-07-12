@@ -20,4 +20,3 @@ def introduction():
 def handle_404(err):
     return "404"
 
-

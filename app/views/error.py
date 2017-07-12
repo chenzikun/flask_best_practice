@@ -8,6 +8,7 @@ error_templates =os.path.abspath(
 
 error_bp = Blueprint("errors", __name__, template_folder=error_templates)
 
+
 @error_bp.app_errorhandler(404)
 def handle_404(err):
     return render_template("404.html", err=err), 404
