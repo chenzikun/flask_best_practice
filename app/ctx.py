@@ -4,3 +4,5 @@ def author_context_processor():
     return {
         'author': "chenzikunczk@gmail.com",
     }
+
+
