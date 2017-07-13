@@ -2,12 +2,14 @@ import os
 
 from celery import Celery
 from flask import Flask
+from flask_exceptional import Exceptional
+from flask_login import LoginManager
 
 from config import config
 from .database._mysql import MysqlDatabase
 from .database._redis import RedisDatabase
 from .database._sqlalchemy import SqlalchemyDatabase
-from .database._sqlite import SQLite3
+from .database._sqlite import SQLite
 from .utils.celery_util import init_celery
 from .utils.mail_handler import init_mail
 
@@ -27,12 +29,31 @@ celery = Celery()
 
 
 class Database():
-    def __init__(self, config):
+    def __init__(self, app=None):
+        self.app = app
+        self.db = SqlalchemyDatabase()
+        self.redis = RedisDatabase()
+        self.sqlite = SQLite()
+        self.mysql = MysqlDatabase()
 
-        mysql = MysqlDatabase(config["MYSQL_CONFIG"])
-        sqlalchemy = SqlalchemyDatabase(config["SQLALCHEMY"])
-        redis = SqlalchemyDatabase(config["REDIS"])
-        sqlite = SqlalchemyDatabase(config["SQLITE"])
+        if app:
+            self.init_app(app)
+
+    def init_app(self, app):
+        """
+        初始化数据库配置
+        """
+        self.db.init_app(app)
+        # self.redis.init_app(app)
+        # self.mysql.init_app(app)
+        # self.sqlite.init_app(app)
+
+
+database = Database()
+
+
+login_manager = LoginManager()
+login_manager.session_protection = "strong"
 
 
 class Application(Flask):
@@ -47,6 +68,10 @@ class Application(Flask):
 
         #: mail
         init_mail(self)
+
+        #: Flask-Exceptional
+        self.config["EXCEPTIONAL_API_KEY"] = "exceptional_forty_character_unique_key"
+        exceptional = Exceptional(self)
 
     def _init_blueprint(self, *blueprints):
         """
@@ -86,11 +111,15 @@ def create_app(environment):
     if environment == "dev":
         app.debug = True
 
+    #: 数据库
+    database.init_app(app)
+
     #: 注册蓝图
     from app.apis.api import api_bp
     from app.views.homepage import homepage_bp
     from app.views.error import error_bp
-    blueprints = [homepage_bp, api_bp, error_bp]
+    from app.views.auth import auth_bp
+    blueprints = [homepage_bp, api_bp, error_bp, auth_bp]
     app._init_blueprint(*blueprints)
 
     #: 注册jinja上下文

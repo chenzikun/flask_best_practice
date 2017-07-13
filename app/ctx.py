@@ -1,4 +1,4 @@
-from flask_security import current_user
+from flask_login import current_user
 
 def author_context_processor():
     return {

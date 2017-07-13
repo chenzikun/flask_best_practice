@@ -1,33 +1,10 @@
-from sqlalchemy import create_engine, MetaData
-from sqlalchemy.orm import sessionmaker
+# from sqlalchemy import create_engine, MetaData
+# from sqlalchemy.orm import sessionmaker
+from flask_sqlalchemy import SQLAlchemy
 
-class SqlalchemyDatabase():
+
+class SqlalchemyDatabase(SQLAlchemy):
     """sqlalchemy"""
-
-    def __init__(self, url):
-        """
-        :param url:  "mysql+pymysql://chenzikun:ppwchenzikun@192.168.1.253:20002/xw?charset=utf8"
-        """
-        self.engine = create_engine(url)
-        self.meta = self.create_session()
-        self.session = self.create_meta()
-
-    def create_meta(self):
-        """
-        创建meta
-        :return: meta
-        """
-        metadata = MetaData(bind=self.engine)
-        metadata.reflect()
-        return metadata
-
-    def create_session(self):
-        """
-        创建会话
-        :return: 会话
-        """
-        Session = sessionmaker(bind=self.engine)
-        return Session()
 
     def query(self, table_name):
         """
@@ -35,7 +12,7 @@ class SqlalchemyDatabase():
         :param table_name: 表名
         :return: [{},{}]columns的字典列表
         """
-        table = self.meta.tables[table_name]
+        table = self.metadata.tables[table_name]
         result = self.session.query(table).all()
         return [{key: value for key, value in zip(table.c.keys(), values)} for values in result]
 
@@ -45,7 +22,7 @@ class SqlalchemyDatabase():
         :param table_name 表名
         :param value [{}] or {} value类型：字典或者包含字典的列表
         """
-        table = self.meta.tables[table_name]
+        table = self.metadata.tables[table_name]
         self.session.execute(table.insert(), value)
         self.session.commit()
 
@@ -55,7 +32,7 @@ class SqlalchemyDatabase():
         :param value: [{}, {}],对象字典、
         :return:  插入数据的id
         """
-        table = self.meta.tables[table_name]
+        table = self.metadata.tables[table_name]
         cur = self.session.execute(table.insert(), value)
         self.session.commit()
         return cur.lastrowid

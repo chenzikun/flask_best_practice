@@ -88,3 +88,5 @@ def about():
 	文件
 
 4. 	request.cookies
+
+### 信号

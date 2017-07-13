@@ -4,7 +4,7 @@ from flask import (
 )
 from werkzeug.contrib.cache import SimpleCache
 
-
+#: flask-login有现成模块
 def login_required(f):
     """登录装饰器"""
 
