@@ -2,7 +2,6 @@ import os
 
 from celery import Celery
 from flask import Flask
-from flask_exceptional import Exceptional
 from flask_login import LoginManager
 
 from config import config
@@ -68,10 +67,6 @@ class Application(Flask):
 
         #: mail
         init_mail(self)
-
-        #: Flask-Exceptional
-        self.config["EXCEPTIONAL_API_KEY"] = "exceptional_forty_character_unique_key"
-        exceptional = Exceptional(self)
 
     def _init_blueprint(self, *blueprints):
         """

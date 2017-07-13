@@ -1,4 +1,4 @@
-from flask import current_app
+
 import sqlite3
 from flask.ctx import _app_ctx_stack as stack
 
