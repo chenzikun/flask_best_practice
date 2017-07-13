@@ -9,7 +9,6 @@ Flask Best Practice!
     gulp
     redis配置说明
     docker
-    pythonic/*
     flask/*
     api/*
 
