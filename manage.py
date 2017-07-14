@@ -5,8 +5,6 @@ import os
 from app import create_app
 from flask_script import Manager
 
-
-
 environment = os.getenv("FLASK_CONFIG") or "default"
 app = create_app(environment)
 
